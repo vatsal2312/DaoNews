@@ -5,8 +5,10 @@ function _msgSender() internal view virtual returns (address payable) {
 return payable(msg.sender);
 }
 function _msgData() internal view virtual returns (bytes memory) {
-this; // silence state mutability warning without generating bytecode - see
-https://github.com/ethereum/solidity/issues/2691
+this; 
+
+// silence state mutability warning without generating bytecode - see https://github.com/ethereum/solidity/issues/2691
+
 return msg.data;
 }
 }
@@ -66,8 +68,7 @@ return a % b;
 library Address {
 function isContract(address account) internal view returns (bool) {
 // According to EIP-1052, 0x0 is the value returned for not-yet created accounts
-// and 0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470
-is returned
+// and 0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470 is returned
 // for accounts without code, i.e. `keccak256('')`
 bytes32 codehash;
 bytes32 accountHash =
@@ -91,8 +92,7 @@ return _functionCallWithValue(target, data, 0, errorMessage);
 }
 function functionCallWithValue(address target, bytes memory data, uint256 value) internal
 returns (bytes memory) {
-return functionCallWithValue(target, data, value, "Address: low-level call with value
-failed");
+return functionCallWithValue(target, data, value, "Address: low-level call with value failed");
 }
 function functionCallWithValue(address target, bytes memory data, uint256 value, string
 memory errorMessage) internal returns (bytes memory) {
@@ -385,8 +385,8 @@ uint256 public _liquidityFee = 250; //2.5% Goes to Liquidity Wallet
 uint256 public _marketingFee = 250; //2.5% Goes to Marketing Wallet
 uint256 public _CharityFee = 0;
 uint256 feeDenominator = 10000;
-uint256 public _totalTaxPercent = 0; //Showing 0 Here , But it is Set to 10 % overall as
-Discussed.
+uint256 public _totalTaxPercent = 0; 
+//Showing 0 Here , But it is Set to 10 % overall as Discussed.
 uint256 private _prevTotalTaxPercent = 0;
 uint256 public _maxTxAmount = 30000 * 10**9;
 uint256 private minimumTokensBeforeSwap = 50000 * 10**9;
@@ -471,8 +471,7 @@ return true;
 function decreaseAllowance(address spender, uint256 subtractedValue) public virtual
 returns (bool) {
 _approve(_msgSender(), spender,
-_allowances[_msgSender()][spender].sub(subtractedValue, "ERC20: decreased allowance
-below zero"));
+_allowances[_msgSender()][spender].sub(subtractedValue, "ERC20: decreased allowance below zero"));
 return true;
 }
 function minimumTokensBeforeSwapAmount() public view returns (uint256) {
